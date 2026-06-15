@@ -1,9 +1,17 @@
 import streamlit as st
+import google.generativeai as genai
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
 from resume_parser import extract_text
 from analyzer import match_resume
 from similarity import calculate_similarity
 from skills import extract_skills
 from analyzer import generate_questions
+
 
 
 st.title("AI Resume Analyzer")
